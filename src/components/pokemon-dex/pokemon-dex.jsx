@@ -18,7 +18,7 @@ export class PokemonDex extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:3030/api/cards?limit=20").then(res => {
+    axios.get("http://localhost:3030/api/cards?limit=10").then(res => {
       this.setState({
         PokemonDex: res.data.cards
       });
@@ -29,6 +29,8 @@ export class PokemonDex extends Component {
     let cards = this.state.PokemonDex.map(p => {
       return <Card key={p.id} card_info={p} type="x" cpr={2} />;
     });
+
+    // cards = [];
 
     return cards;
   }

@@ -12,6 +12,8 @@ export const CardContainer = styled.div`
   flex: 0 0
     calc((100% - (${props => props.cpr} * 2 * 15px)) / ${props => props.cpr});
 
+  height: 250px;
+
   box-shadow: 0px 0px 5px #d5d6dc;
 
   :hover {
@@ -22,7 +24,7 @@ export const CardContainer = styled.div`
 export const CardImg = styled.img`
   display: block;
 
-  height: 250px;
+  height: 100%;
 `;
 
 export const CardContent = styled.div`

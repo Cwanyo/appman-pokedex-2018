@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
-const ButtomHeight = "80px";
 const HeaderHeight = "100px";
+const ButtomHeight = "100px";
 
 export const PokemonDexContainer = styled.div`
+  background-color: gold;
+
+  display: flex;
+  flex-flow: column;
+
   width: 100%;
   height: 100%;
 `;
@@ -13,7 +18,7 @@ export const Header = styled.div`
   position: relative;
 
   width: 100%;
-  height: ${HeaderHeight};
+  flex: 0 0 ${HeaderHeight};
 
   ::after {
     content: "My Pokedex";
@@ -27,7 +32,9 @@ export const Header = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-  height: calc(100% - ${ButtomHeight} - ${HeaderHeight});
+  background-color: yellow;
+
+  flex-grow: 1;
 
   overflow: auto;
   padding: 5px;
@@ -35,16 +42,16 @@ export const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: none;
-  }
+  } */
 `;
 
 export const Buttom = styled.div`
   background: #ec5656;
   position: relative;
 
-  height: ${ButtomHeight};
+  flex: 0 0 ${ButtomHeight};
   width: 100%;
 `;
 
