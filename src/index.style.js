@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
   padding: 0;
@@ -38,3 +41,4 @@ body {
   top: 50%;
   border: 1px inset #7b7b7b;
 }
+`;

@@ -1,6 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import React, { Fragment } from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import { GlobalStyle } from "./index.style";
+// import "./index.css";
+import App from "./components/App";
+
+ReactDOM.render(
+  <Fragment>
+    <GlobalStyle />
+    <App />
+  </Fragment>,
+  document.getElementById("root")
+);

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './App.css'
+import React, { Component } from "react";
+
+import { AppContainer } from "./App.style";
 
 const COLORS = {
   Psychic: "#f8a5c2",
@@ -13,15 +14,12 @@ const COLORS = {
   Darkness: "#574b90",
   Colorless: "#FFF",
   Fire: "#eb4d4b"
-}
+};
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-      </div>
-    )
+    return <AppContainer />;
   }
 }
 
-export default App
+export default App;
