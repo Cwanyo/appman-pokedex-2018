@@ -77,12 +77,11 @@ export class Card extends Component {
     return dmg;
   }
 
-  //  TODO - fix
   getLevel() {
-    // Happiness level calculation ((hp / 10) + (damage /10 ) + 10 - (weak)) / 5
-    let level = 5;
-
-    // console.log(this.getHP(), this.getDamage(), this.getWEAK());
+    // TOFIX - Happiness level calculation ((hp / 10) + (damage /10 ) + 10 - (weak/???)) / 5
+    let level = Math.ceil(
+      (this.getHP() / 10 + this.getDamage() / 10 + 10 - this.getWEAK() / 10) / 5
+    );
 
     return level;
   }
