@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
+import { addToDex, removeFromDex } from "../../../redux/actions/pokemon-action";
+
 import Bar from "../bar/bar";
 import Level from "../level/level";
 
@@ -79,10 +82,18 @@ export class Card extends Component {
     // Happiness level calculation ((hp / 10) + (damage /10 ) + 10 - (weak)) / 5
     let level = 5;
 
-    console.log(this.getHP(), this.getDamage(), this.getWEAK());
+    // console.log(this.getHP(), this.getDamage(), this.getWEAK());
 
     return level;
   }
+
+  handleAction = () => {
+    if (this.props.type === "x") {
+      this.props.removeFromDex(this.props.card_info.id);
+    } else if (this.props.type === "+") {
+      this.props.addToDex(this.props.card_info.id);
+    }
+  };
 
   render() {
     const { card_info } = this.props;
@@ -91,7 +102,7 @@ export class Card extends Component {
       <CardContainer cpr={this.props.cpr}>
         <CardImg src={card_info.imageUrl} />
         <CardContent>
-          <CardButton icon={this.props.type} />
+          <CardButton onClick={this.handleAction} icon={this.props.type} />
           <CardTitle color={COLORS[card_info.type]}>{card_info.name}</CardTitle>
           <Bar title="HP" percent={this.getHP()} />
           <Bar title="STR" percent={this.getSTR()} />
@@ -103,4 +114,14 @@ export class Card extends Component {
   }
 }
 
-export default Card;
+const mapDispathToState = dispatch => {
+  return {
+    addToDex: id => dispatch(addToDex(id)),
+    removeFromDex: id => dispatch(removeFromDex(id))
+  };
+};
+
+export default connect(
+  null,
+  mapDispathToState
+)(Card);

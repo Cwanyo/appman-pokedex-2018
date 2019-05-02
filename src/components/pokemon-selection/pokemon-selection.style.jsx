@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const PokemonSelectionContainer = styled.div`
+export const PokemonSelectionContainer = styled.div``;
+
+export const Block = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 
   position: absolute;
@@ -27,8 +29,6 @@ export const PopUpInner = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-  background-color: yellow;
-
   flex-grow: 1;
 
   overflow: auto;

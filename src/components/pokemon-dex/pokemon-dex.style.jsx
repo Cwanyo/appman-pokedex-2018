@@ -4,8 +4,6 @@ const HeaderHeight = "100px";
 const ButtomHeight = "100px";
 
 export const PokemonDexContainer = styled.div`
-  background-color: gold;
-
   display: flex;
   flex-flow: column;
 
@@ -32,8 +30,6 @@ export const Header = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-  background-color: yellow;
-
   flex-grow: 1;
 
   overflow: auto;

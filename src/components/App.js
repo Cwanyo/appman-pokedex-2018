@@ -1,19 +1,27 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
+
 import PokemonDex from "./pokemon-dex/pokemon-dex";
+import PokemonSelection from "./pokemon-selection/pokemon-selection";
 
 import { AppContainer } from "./App.style";
-import PokemonSelection from "./pokemon-selection/pokemon-selection";
 
 class App extends Component {
   render() {
     return (
       <AppContainer>
-        <PokemonSelection />
+        {this.props.ShowSelection === true && <PokemonSelection />}
         <PokemonDex />
       </AppContainer>
     );
   }
 }
 
-export default App;
+const MapStateToProps = state => {
+  return {
+    ShowSelection: state.UI.ShowSelection
+  };
+};
+
+export default connect(MapStateToProps)(App);

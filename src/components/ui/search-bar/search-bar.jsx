@@ -4,7 +4,12 @@ import { SearchBarContainer } from "./search-bar.style";
 
 export class SearchBar extends Component {
   render() {
-    return <SearchBarContainer placeholder="Find Pokemon.." />;
+    return (
+      <SearchBarContainer
+        onChange={this.props.onChange}
+        placeholder="Find Pokemon.."
+      />
+    );
   }
 }
 

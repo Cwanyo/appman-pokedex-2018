@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
-import axios from "axios";
+import { connect } from "react-redux";
+import { toggleSelection } from "../../redux/actions/ui-action";
 
 import Card from "../ui/card/card";
 
@@ -13,24 +13,10 @@ import {
 } from "./pokemon-dex.style";
 
 export class PokemonDex extends Component {
-  state = {
-    PokemonDex: []
-  };
-
-  componentDidMount() {
-    axios.get("http://localhost:3030/api/cards?limit=10").then(res => {
-      this.setState({
-        PokemonDex: res.data.cards
-      });
-    });
-  }
-
   getCards() {
-    let cards = this.state.PokemonDex.map(p => {
+    let cards = this.props.Dex.map(p => {
       return <Card key={p.id} card_info={p} type="x" cpr={2} />;
     });
-
-    // cards = [];
 
     return cards;
   }
@@ -41,11 +27,26 @@ export class PokemonDex extends Component {
         <Header />
         <CardsContainer>{this.getCards()}</CardsContainer>
         <Buttom>
-          <ButtomButton />
+          <ButtomButton onClick={this.props.toggleSelection} />
         </Buttom>
       </PokemonDexContainer>
     );
   }
 }
 
-export default PokemonDex;
+const mapStateToProps = state => {
+  return {
+    Dex: state.Pokemon.Dex
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleSelection: () => dispatch(toggleSelection())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PokemonDex);
